@@ -2,8 +2,8 @@ package org.melek.selenideallurebddsample.hooks;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import io.cucumber.core.gherkin.Step;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
@@ -31,6 +31,11 @@ public class Hooks {
                 addScreenshotToReport(pngFileName.replace("file:", ""), scenario.getName());
             }
         }
+    }
+
+    @AfterAll
+    public static void after_all() throws IOException, InterruptedException {
+   //     Runtime.getRuntime().exec(System.getProperty("user.dir") + "/send-test-result.sh");
     }
 
     public void addScreenshotToReport(String pngFileName, String name) {
