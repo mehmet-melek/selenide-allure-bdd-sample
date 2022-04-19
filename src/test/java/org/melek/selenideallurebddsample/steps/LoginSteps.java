@@ -11,17 +11,21 @@ public class LoginSteps {
 
     private LoginPage loginPage = new LoginPage();
     private ProductsPage productsPage = new ProductsPage();
+
     @Given("User is at the login page")
     public void user_is_at_the_login_page() {
         loginPage.validateOnLoginPage();
     }
-    @When("User enters username as {string} and password as {string}")
-    public void user_enters_username_as_and_password_as(String userName, String password) {
-        loginPage.login(userName,password);
+
+    @When("User login with username as {string} and password as {string}")
+    public void userLoginWithUsernameAsAndPasswordAs(String userName, String password) {
+        loginPage.login(userName, password);
     }
+
     @When("User clicks on login button")
     public void user_clicks_on_login_button() {
     }
+
     @Then("User is able to successfully login to application.")
     public void user_is_able_to_successfully_login_to_application() {
         productsPage.validateOnProductsPage();
@@ -29,6 +33,8 @@ public class LoginSteps {
 
     @Then("User should see {string} error message")
     public void userShouldSeeErrorMessage(String errorMessage) throws InterruptedException {
-        Assertions.assertEquals(errorMessage,loginPage.getLoginErrorMessage());
+        Assertions.assertEquals(errorMessage, loginPage.getLoginErrorMessage());
     }
+
+
 }
