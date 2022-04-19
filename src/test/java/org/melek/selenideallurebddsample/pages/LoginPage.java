@@ -2,13 +2,12 @@ package org.melek.selenideallurebddsample.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byAttribute;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
-// page_url = https://www.saucedemo.com/
 public class LoginPage {
-
     private SelenideElement usernameInput = $("#user-name");
     private SelenideElement passwordInput = $(byAttribute("data-test", "password"));
     private SelenideElement loginButtonInput = $x("//*[@id='login-button']");

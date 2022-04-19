@@ -2,10 +2,9 @@ package org.melek.selenideallurebddsample.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$x;
 
-// page_url = https://www.saucedemo.com/inventory.html
 public class ProductsPage {
     private SelenideElement titleSpan = $x("//*[@class='title' and text()='Products']");
 
