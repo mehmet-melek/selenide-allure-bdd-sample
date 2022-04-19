@@ -1,17 +1,20 @@
 package org.melek.selenideallurebddsample.hooks;
 
+import com.codeborne.selenide.Selenide;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Hook {
 
     @Before
     public void beforeExample() {
-        System.out.println("beforeExample");
+        Selenide.open("https://www.saucedemo.com/");
     }
 
     @After
     public void afterExample() {
-        System.out.println("afterExample");
+        Selenide.closeWindow();
     }
 }
