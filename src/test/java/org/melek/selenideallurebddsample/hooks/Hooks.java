@@ -7,6 +7,7 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
+import io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm;
 
 import java.io.IOException;
 import java.io.InputStream;

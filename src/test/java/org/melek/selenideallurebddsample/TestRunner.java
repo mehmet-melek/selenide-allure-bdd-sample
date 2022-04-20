@@ -16,8 +16,6 @@ public class TestRunner {
 
     @AfterAll
     public static void sendTestResult() throws IOException {
-        System.out.println("buradaaaa");
-        Runtime.getRuntime().exec("${user.dir}/send-test-result.sh");
     }
 
 }
