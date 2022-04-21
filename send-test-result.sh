@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 # This directory is where you have all your results locally, generally named as `allure-results`
 ALLURE_RESULTS_DIRECTORY='target/allure-results'
@@ -16,10 +16,23 @@ fi
 
 FILES=''
 for FILE in $FILES_TO_SEND; do
-  FILES+="-F files[]=@'$FILE'"
+  FILES+="-F files[]=@$FILE "
 done
 
 set -o xtrace
 echo "------------------SEND-RESULTS------------------"
-# shellcheck disable=SC1073
-curl -X POST "$ALLURE_SERVER/allure-docker-service/send-results?project_id=$PROJECT_ID" -H 'Content-Type: multipart/form-data' "$FILES" -ik
+curl -X POST "$ALLURE_SERVER/allure-docker-service/send-results?project_id=$PROJECT_ID" -H 'Content-Type: multipart/form-data' $FILES -ik
+
+
+#If you want to generate reports on demand use the endpoint `GET /generate-report` and disable the Automatic Execution >> `CHECK_RESULTS_EVERY_SECONDS: NONE`
+#echo "------------------GENERATE-REPORT------------------"
+#EXECUTION_NAME='execution_from_my_bash_script'
+#EXECUTION_FROM='http://google.com'
+#EXECUTION_TYPE='bamboo'
+
+#You can try with a simple curl
+#RESPONSE=$(curl -X GET "$ALLURE_SERVER/allure-docker-service/generate-report?project_id=$PROJECT_ID&execution_name=$EXECUTION_NAME&execution_from=$EXECUTION_FROM&execution_type=$EXECUTION_TYPE" $FILES)
+#ALLURE_REPORT=$(grep -o '"report_url":"[^"]*' <<< "$RESPONSE" | grep -o '[^"]*$')
+
+#OR You can use JQ to extract json values -> https://stedolan.github.io/jq/download/
+#ALLURE_REPORT=$(echo $RESPONSE | jq '.data.report_url')

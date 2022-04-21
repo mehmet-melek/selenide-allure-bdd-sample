@@ -14,9 +14,6 @@ Feature: Product Page Tests
     When User click to product title
     Then User should see the product detail page open
 
-  Scenario: Button Add To Cart turns into button Remove
-    When User clicks on Add To Cart button
-    Then User should see Remove button instead of Add To Cart button
 
   Scenario: Add To Cart button is pressed once
     When User clicks on Add To Cart button
