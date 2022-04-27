@@ -7,7 +7,7 @@ import org.junit.platform.engine.support.hierarchical.ParallelExecutionConfigura
 
 public class FixedParallelExecutionConfigurationStrategy implements ParallelExecutionConfiguration, ParallelExecutionConfigurationStrategy {
 
-    private static final int FIXED_PARALLELISM = 2;
+    private static final int FIXED_PARALLELISM = 1;
 
     @Override
     public ParallelExecutionConfiguration createConfiguration(final ConfigurationParameters configurationParameters) {
